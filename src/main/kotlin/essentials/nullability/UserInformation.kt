@@ -5,7 +5,14 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 fun processUserInformation(user: User?): String {
-    return ""
+    if (user == null) {
+        return "Missing user information"
+    }
+    requireNotNull(user.name)
+    if (user.email?.email.isNullOrBlank()) {
+        return "Missing email"
+    }
+    return "User ${user.name} is ${user.age ?: 0} years old, email: ${user.email?.email}"
 }
 
 data class EmailAddress(val email: String?)
