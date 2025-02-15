@@ -14,3 +14,5 @@ Most of those exercises can be found in the following books:
  - [Functional Kotlin](https://leanpub.com/kotlin_functional)
  - [Kotlin Coroutines: Deep Dive](https://leanpub.com/coroutines)
  - [Advanced Kotlin](https://leanpub.com/advanced_kotlin)
+
+왜 혼자 공부해요, 나도 코틀린 공부할
