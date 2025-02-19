@@ -2,9 +2,16 @@ package essentials.exceptions.handleexceptions
 
 fun main() {
     while (true) {
-        // Wrap below function call with try-catching block,
-        // and handle possible exceptions.
-        handleInput()
+        try {
+            handleInput()
+        } catch (e: NumberFormatException) {
+            println(e.message)
+        } catch (e: ArithmeticException) {
+            println(e.message)
+        } catch (e: IllegalOperatorException) {
+            println(e.message)
+        }
+
     }
 }
 
