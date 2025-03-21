@@ -7,8 +7,7 @@ fun add(arr: ArrayList<Int>): ArrayList<Int> {
 }
 
 fun main() {
-    var arr: ArrayList<Int> = arrayListOf(1, 2)
-    println(add(arr))
-    println(arr);
+    val arr2 = 1.0..10.0
+    println(5.5 in arr2)
 }
 

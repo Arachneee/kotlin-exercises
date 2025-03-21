@@ -12,27 +12,29 @@ class Inventory {
     private val sellers = mutableSetOf<String>()
 
     fun addProduct(product: Product, producer: String) {
-        // TODO: Add product and assign producer
+        products.add(product)
+        productIdToProducer[product.id] = producer
     }
 
     fun removeProduct(product: Product) {
-        // TODO: Remove product and producer
+        products.remove(product)
+        productIdToProducer.remove(product.id)
     }
 
-    fun getProductsCount(): Int = TODO()
+    fun getProductsCount(): Int = products.size
 
-    fun hasProduct(product: Product): Boolean = TODO()
+    fun hasProduct(product: Product): Boolean = products.contains(product)
 
-    fun hasProducts(): Boolean = TODO()
+    fun hasProducts(): Boolean = products.isNotEmpty()
 
-    fun getProducer(product: Product): String? = TODO()
+    fun getProducer(product: Product): String? = productIdToProducer[product.id]
 
     fun addSeller(seller: String) {
-        // TODO: Add seller
+        sellers.add(seller)
     }
 
     fun removeSeller(seller: String) {
-        // TODO: Remove seller
+        sellers.remove(seller)
     }
 
     fun produceInventoryDisplay(): String {
@@ -43,6 +45,15 @@ class Inventory {
         // "Produced by: {producer}"
         // TODO: Print sellers in the format
         //  "Sellers: {sellers}"
+
+        for (product in products) {
+            val name = product.name
+            val category = product.category
+            val price = product.price
+            val producer = productIdToProducer[product.id]
+            result += "$name ($category) - $$price\nProduced by: $producer\n"
+        }
+        result += "Sellers: $sellers"
         return result
     }
 }
@@ -156,9 +167,9 @@ class InventoryTest {
 
         val expectedDisplay = """
             Inventory:
-            Apple (Fruit) - 0.5
+            Apple (Fruit) - $0.5
             Produced by: FruitCorp
-            Banana (Fruit) - 0.3
+            Banana (Fruit) - $0.3
             Produced by: TropicalFruitCorp
             Sellers: [SellerA, SellerB]
         """.trimIndent()
