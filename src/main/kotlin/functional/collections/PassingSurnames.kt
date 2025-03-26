@@ -11,11 +11,8 @@ data class StudentJson(
 )
 
 fun List<StudentJson>.getPassingSurnames(): List<String> =
-    this.filter { it.result >= 50 }
-        .filter { it.pointsInSemester >= 15 }
-        .map { it.surname }
-        .filter { it != null }
-        .map { it!! }
+    this.filter { it.result >= 50 && it.pointsInSemester >= 15}
+        .mapNotNull { it.surname }
 
 class PassingSurnamesTest {
     @Test

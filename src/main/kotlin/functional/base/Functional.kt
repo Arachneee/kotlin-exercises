@@ -92,6 +92,8 @@ class LambdaUsingImplicitParameter {
     //  use implicit parameter `it`.
 }
 
+
+
 class FunctionalTest {
 
     @Test

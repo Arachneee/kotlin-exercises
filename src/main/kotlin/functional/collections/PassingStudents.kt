@@ -1,9 +1,12 @@
 package functional.collections.passingstudents
 
+import functional.collections.map.filter
 import org.junit.Test
 import kotlin.test.assertEquals
 
-fun List<Student>.makePassingStudentsList(): String = TODO()
+fun List<Student>.makePassingStudentsList(): String = this.filter { it.pointsInSemester > 15 && it.result >= 50 }
+    .sortedWith(compareBy({ it.surname }, { it.name }))
+    .joinToString("\n") { "${it.name} ${it.surname}, ${it.result}" }
 
 data class Student(
     val name: String,

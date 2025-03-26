@@ -1,6 +1,7 @@
 package functional.collections.map
 
 import org.junit.Test
+import kotlin.collections.map
 import kotlin.collections.onEach
 import kotlin.test.assertEquals
 // To prevent unintentional stdlib functions usage
